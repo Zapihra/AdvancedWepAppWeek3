@@ -21,16 +21,11 @@ router.post('/', function(req, res) {
     
     if (found == true) {
 
-        for (let i = 0; i < listName.length; i++) {
-            const list_name = listName[i];
+        let i = listName.findIndex(n=> n === reqName)
 
-            if (list_name == reqName) {
-                
-                listTodo[i].push(reqTodo);
-                res.json({"msg":"Todo added"});
-                
-            }  
-        }
+        listTodo[i].push(reqTodo);
+        res.json({"msg":"Todo added"});
+
     }
     
     else {
@@ -38,16 +33,44 @@ router.post('/', function(req, res) {
         listName.push(reqName);
         listTodo.push([reqTodo]);
         res.json({"msg":"User added"})
-        
     }
     
-  });
+});
 
 router.get('/:id', function (req, res) {
-    console.log(req.body)
+    const name = req.params.id;
+    const found = listName.includes(name);
+
+    if (found == false) {
+        res.json({"user":"User not found"}) 
+    }
+    else {
+        let i = listName.findIndex(n=> n === name)
+        const list = listTodo[i]
+
+        res.json({"msg": list})
+    }
+
+});
 
 
-})
+router.delete('/user/:id', function (req, res) {
+    const name = req.params.id;
+    const found = listName.includes(name);
+
+    if (found == false) {
+        res.json({"user":"User not found"}) 
+    }
+    else {
+        let i = listName.findIndex(n=> n === name)
+        
+        listName.shift(i);
+        listTodo.shift(i);
+        res.json({"user": "User deleted"})
+    }
+}) 
 
 
-  module.exports = router;
+
+
+module.exports = router;

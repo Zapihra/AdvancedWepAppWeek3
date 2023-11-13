@@ -3,16 +3,21 @@ extends layout
 block content
   
   h1 My todos
-    form(onsubmit="return false")
-      input(id="input-name")
-      br
-      input(id="input-task") 
-      br
-      button(id="submit-data") add
+  form#add(onsubmit="return false")
+    input(id="input-name")
+    br
+    input(id="input-task") 
+    br
+    button(id="submit-data") add
+    
 
-    form(onsubmit="return false")
-      input#search-name
-      button(id="search") search
+  form#nameSearch(onsubmit="return false")
+    br
+    input#search-name
+    br
+    button(id="search") search
+
+  button#delete-user delete user
 
   
 
