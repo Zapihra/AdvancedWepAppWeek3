@@ -31,7 +31,7 @@ button.addEventListener("click", () => {
 
 buttonSearch.addEventListener("click", () => {
     const name = document.getElementById("search-name").value;
-    const get = "http://localhost:3000/user/" + name;
+    const get = "http://localhost:3000/" + name;
     const form = document.getElementById("nameSearch")
     const body = document.getElementById("body");
 
