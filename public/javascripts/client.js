@@ -32,7 +32,7 @@ button.addEventListener("click", () => {
 
 buttonSearch.addEventListener("click", () => {
     const name = document.getElementById("search-name").value;
-    const get = "http://localhost:3000/todo/" + name;
+    const get = "http://localhost:3000/todo/user/" + name;
     const form = document.getElementById("nameSearch")
     const body = document.getElementById("body");
 
@@ -43,7 +43,7 @@ buttonSearch.addEventListener("click", () => {
         
         if (user == undefined) {
             for (let i = 0; i < list.length; i++) {
-                const p = document.createElement("button")
+                const p = document.createElement("p")
                 p.className = "delete-task"
                 p.id = i;
                 p.textContent = list[i];
@@ -82,7 +82,7 @@ buttonDelUser.addEventListener("click", () => {
     })
 })
 
-console.log(update)
+
 for( var i = 0; i < update.length; ++i ) {
     update[i].onclick = function() {
         console.log(update[i]) 
