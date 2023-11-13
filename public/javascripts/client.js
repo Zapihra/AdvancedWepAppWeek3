@@ -31,24 +31,21 @@ button.addEventListener("click", () => {
 
 buttonSearch.addEventListener("click", () => {
     const name = document.getElementById("search-name").value;
-    const get = "http://localhost:3000/" + name;
+    const get = "http://localhost:3000/user/" + name;
     const form = document.getElementById("nameSearch")
     const body = document.getElementById("body");
 
     fetch(get).then(function (response) {return response.json();
     }).then(function (data) {
         console.log(data)
-        const list = JSON.parse(data.todos)
+        const list = data;        
         const user = data.user;
         
         if (user == undefined) {
-            for (let i = 0; i < list.length; i++) {
-                const p = document.createElement("p")
+            const p = document.createElement("p")
                 p.className = "delete-task"
-                p.id = i;
-                p.textContent = list[i];
+                p.textContent = list;
                 form.appendChild(p)
-            }
 
             buttonDelUser.style.display = "block"
 

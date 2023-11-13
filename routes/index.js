@@ -43,7 +43,7 @@ router.post('/todo', function(req, res) {
     
 });
 
-router.get('/:id', function (req, res) {
+router.get('/user/:id', function (req, res) {
   const name = req.params.id;
   const found = listName.includes(name);
 
@@ -54,7 +54,7 @@ router.get('/:id', function (req, res) {
       let i = listName.findIndex(n=> n === name)
       const list = listTodo[i]
 
-      res.json({"name": name,"todos": JSON.stringify(list)})
+      res.json(JSON.stringify({"name": name,"todos": list}))
   }
 
 });
