@@ -32,7 +32,7 @@ button.addEventListener("click", () => {
 
 buttonSearch.addEventListener("click", () => {
     const name = document.getElementById("search-name").value;
-    const get = "http://localhost:3000/todo/user/" + name;
+    const get = "http://localhost:3000/user/" + name;
     const form = document.getElementById("nameSearch")
     const body = document.getElementById("body");
 
@@ -68,7 +68,7 @@ buttonDelUser.addEventListener("click", () => {
     const name = document.getElementById("search-name").value;
     const body = document.getElementById("body");
 
-    fetch("http://localhost:3000/todo/user/" + name, {
+    fetch("http://localhost:3000/user/" + name, {
         method: 'DELETE',
         headers: {
             'Content-Type':'application/json'
