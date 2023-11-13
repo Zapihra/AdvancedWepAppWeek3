@@ -1,7 +1,6 @@
 const button = document.getElementById("submit-data");
 const buttonSearch = document.getElementById("search");
 const buttonDelUser = document.getElementById("delete-user");
-var update = document.getElementsByClassName("delete-task");
 
 buttonDelUser.style.display  = "none";
 
@@ -38,7 +37,8 @@ buttonSearch.addEventListener("click", () => {
 
     fetch(get).then(function (response) {return response.json();
     }).then(function (data) {
-        const list = data.msg;
+
+        const list = JSON.parse(data.msg);
         const user = data.user;
         
         if (user == undefined) {
@@ -81,11 +81,3 @@ buttonDelUser.addEventListener("click", () => {
         body.appendChild(p)
     })
 })
-
-
-for( var i = 0; i < update.length; ++i ) {
-    update[i].onclick = function() {
-        console.log(update[i]) 
-       //code here to update total based on element id
-    }
-}
