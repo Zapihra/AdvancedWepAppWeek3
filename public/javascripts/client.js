@@ -1,6 +1,7 @@
 const button = document.getElementById("submit-data");
 const buttonSearch = document.getElementById("search");
 const buttonDelUser = document.getElementById("delete-user");
+var update = document.getElementsByClassName("delete-task");
 
 buttonDelUser.style.display  = "none";
 
@@ -42,13 +43,14 @@ buttonSearch.addEventListener("click", () => {
         
         if (user == undefined) {
             for (let i = 0; i < list.length; i++) {
-                const p = document.createElement("p")
+                const p = document.createElement("button")
+                p.className = "delete-task"
+                p.id = i;
                 p.textContent = list[i];
                 form.appendChild(p)
             }
 
             buttonDelUser.style.display = "block"
-            
 
         }
         else {
@@ -58,7 +60,7 @@ buttonSearch.addEventListener("click", () => {
         }
 
     })
-
+    update = document.getElementsByClassName("delete-task");
 })
 
 buttonDelUser.addEventListener("click", () => {
@@ -79,3 +81,11 @@ buttonDelUser.addEventListener("click", () => {
         body.appendChild(p)
     })
 })
+
+console.log(update)
+for( var i = 0; i < update.length; ++i ) {
+    update[i].onclick = function() {
+        console.log(update[i]) 
+       //code here to update total based on element id
+    }
+}

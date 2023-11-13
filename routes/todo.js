@@ -37,7 +37,7 @@ router.post('/', function(req, res) {
     
 });
 
-router.get('/:id', function (req, res) {
+router.get('/user/:id', function (req, res) {
     const name = req.params.id;
     const found = listName.includes(name);
 
