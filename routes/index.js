@@ -53,7 +53,7 @@ router.get('/user/:id', function (req, res) {
       let i = listName.findIndex(n=> n === name)
       const list = listTodo[i]
 
-      res.json({"msg": JSON.stringify(list)})
+      res.json(JSON.stringify({"msg": list}))
   }
 
 });

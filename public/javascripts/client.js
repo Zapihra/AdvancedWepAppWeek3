@@ -37,8 +37,8 @@ buttonSearch.addEventListener("click", () => {
 
     fetch(get).then(function (response) {return response.json();
     }).then(function (data) {
-
-        const list = JSON.parse(data.msg);
+        console.log(data)
+        const list = JSON.parse(data).msg;
         const user = data.user;
         
         if (user == undefined) {
