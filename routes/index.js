@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+router.use(express.json());
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -53,7 +54,7 @@ router.get('/user/:id', function (req, res) {
       let i = listName.findIndex(n=> n === name)
       const list = listTodo[i]
 
-      res.json(JSON.stringify({"msg": list}))
+      res.json({"name": name,"todos": JSON.stringify(list)})
   }
 
 });
